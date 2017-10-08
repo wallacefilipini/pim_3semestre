@@ -16,47 +16,60 @@ namespace pagina_inicial
         public frmcadastro_condominio()
         {
             InitializeComponent();
-
         }
-
-
-
-
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            SqlConnection conexao_banco = new SqlConnection();
-            conexao_banco.ConnectionString = @"Data Source=WALLACE-PC;" + "Initial Catalog=condominio_pim;" + "Integrated Security=True";
+            Condominio CadastroCondominio = new Condominio();
+            
+            CadastroCondominio.setNome(txtNome.Text);
+            CadastroCondominio.setCep(txtCep.Text);
+            CadastroCondominio.setEndereco(txtEndereco.Text);
+            CadastroCondominio.setBairro(txtBairro.Text);
+            CadastroCondominio.setCidade(txtCidade.Text);
+            CadastroCondominio.setEstado(txtEstado.Text);
+            CadastroCondominio.setNumero(Convert.ToInt32(txtNumero.Text));
+            CadastroCondominio.setComplemento(txtComplemento.Text);
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao_banco;
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = " INSERT INTO [tb_condominio] " +
-                        " (nome_condominio, cep, endereco, numero, complemento, cidade, estado, observacao) " +
-                        " VALUES ('" + txtNome.Text + "', '" + txtCep.Text + "', '" + txtEndereco.Text + "', '" + txtNumero.Text + "', " +
-                        "'" + txtComplemento.Text + "', '" + txtCidade.Text + "', '" + txtEstado.Text + "', '" + txtObservacao.Text + "')";
+            //Se o ID estiver vazio insiro um novo registro.
+            if (String.IsNullOrEmpty(txtId.Text))
+            {
+                CadastroCondominio.InserirNoBanco();
+                grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
+                LimparCampos();
 
-            conexao_banco.Open();
-            cmd.ExecuteNonQuery();
-            conexao_banco.Close();
-            MessageBox.Show("Registro Inserido com sucesso!");
+                MessageBox.Show("Registro incluído com sucesso!");
+            }
+            else
+            {
+                CadastroCondominio.AtualizarRegistro(Convert.ToInt32(txtId.Text));
+                if (MessageBox.Show("Deseja atualizar este registro?", "Atenção", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    int qtdeLinhas = CadastroCondominio.AtualizarRegistro(Convert.ToInt32(txtId.Text));
+                    if (qtdeLinhas == 1)
+                    {
 
-            txtNome.Text = null;
-            txtCep.Text = null;
-            txtEndereco.Text = null;
-            txtNumero.Text = null;
-            txtComplemento.Text = null;
-            txtCidade.Text = null;
-            txtEstado.Text = null;
-            txtObservacao.Text = null;
+                        MessageBox.Show("Registro" + txtId.Text + " atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
+                        LimparCampos();
+                    }
+                }
 
-            ListarCondominios();
-            txtId.Text = grid_condominio.SelectedRows[0].Cells[0].Value.ToString();
+
+            }
+
+
+
+
+
+            
         }
 
         public void frmcadastro_condominio_Load(object sender, EventArgs e)
         {
-            ListarCondominios();
+            Condominio CadastroCondominio = new Condominio();
+            grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -68,43 +81,22 @@ namespace pagina_inicial
             }
             else
             {
-                SqlConnection conexao_banco = new SqlConnection();
-                conexao_banco.ConnectionString = @"Data Source=WALLACE-PC;" + "Initial Catalog=condominio_pim;" + "Integrated Security=True";
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao_banco;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "  delete from [tb_condominio] WHERE id = " + txtId.Text;
-
-                conexao_banco.Open();
-                int qtdeLinhas = cmd.ExecuteNonQuery();
-                conexao_banco.Close();
-                MessageBox.Show("O registro " + qtdeLinhas.ToString() + "foi excluído com sucesso!");
-                ListarCondominios();
-                txtId.Text = grid_condominio.SelectedRows[0].Cells[0].Value.ToString();
+                if (MessageBox.Show("Deseja Excluir este registro? \nEssa ação não poderá ser desfeita!", "Atenção", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    Condominio CadastroCondominio = new Condominio();
+                    int qtdeLinhas = CadastroCondominio.ExcluirBanco(Convert.ToInt32(txtId.Text));
+                    if (qtdeLinhas == 1)
+                    {
+                        
+                        MessageBox.Show("Registro" + txtId.Text +"excluído com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
+                        LimparCampos();
+                    }
+                }
             }
-            
-
         }
-
-        public void ListarCondominios()
-        {
-            SqlConnection conexao_banco = new SqlConnection();
-            conexao_banco.ConnectionString = @"Data Source=WALLACE-PC;" + "Initial Catalog=condominio_pim;" + "Integrated Security=True";
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao_banco;
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = " SELECT id AS Codigo, nome_condominio as [Condomínio], endereco As [Endereço], numero As Número" +
-                                ", complemento As Complemento, cep As Cep,  bairro As Bairro, cidade As Cidade, estado As Estado, observacao As Observação from [tb_condominio]";
-
-            conexao_banco.Open();
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            conexao_banco.Close();
-            grid_condominio.DataSource = dt;
-        }
-
+ 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Se a tecla digitada não for número
@@ -126,7 +118,7 @@ namespace pagina_inicial
 
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)
+        private void grid_condominio_Click(object sender, EventArgs e)
         {
             txtId.Text = grid_condominio.SelectedRows[0].Cells[0].Value.ToString();
             txtNome.Text = grid_condominio.SelectedRows[0].Cells[1].Value.ToString();
@@ -134,14 +126,32 @@ namespace pagina_inicial
             txtNumero.Text = grid_condominio.SelectedRows[0].Cells[3].Value.ToString();
             txtComplemento.Text = grid_condominio.SelectedRows[0].Cells[4].Value.ToString();
             txtCep.Text = grid_condominio.SelectedRows[0].Cells[5].Value.ToString();
-            //txtBairro
+            txtBairro.Text = grid_condominio.SelectedRows[0].Cells[6].Value.ToString();
             txtCidade.Text = grid_condominio.SelectedRows[0].Cells[7].Value.ToString();
             txtEstado.Text = grid_condominio.SelectedRows[0].Cells[8].Value.ToString();
-
-            //txt.Text = grid_condominio.SelectedRows[0].Cells[4].Value.ToString();
         }
 
-        
-    }    
+        private void LimparCampos()
+        {
+            txtId = null;
+            txtId = null;
+            txtNome.Text = null;
+            txtCep.Text = null;
+            txtEndereco.Text = null;
+            txtNumero.Text = null;
+            txtComplemento.Text = null;
+            txtCidade.Text = null;
+            txtEstado.Text = null;
+            txtObservacao.Text = null;
+            txtBairro.Text = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+    }
 }
+
+    
 

@@ -65,12 +65,14 @@
             this.grid_condominio.AllowUserToResizeRows = false;
             this.grid_condominio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_condominio.Location = new System.Drawing.Point(13, 352);
+            this.grid_condominio.MultiSelect = false;
             this.grid_condominio.Name = "grid_condominio";
             this.grid_condominio.ReadOnly = true;
             this.grid_condominio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_condominio.Size = new System.Drawing.Size(1054, 223);
             this.grid_condominio.TabIndex = 0;
             this.grid_condominio.TabStop = false;
+            this.grid_condominio.Click += new System.EventHandler(this.grid_condominio_Click);
             // 
             // btnIncluir
             // 
@@ -99,7 +101,6 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "VISUALIZAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -322,6 +323,7 @@
             this.button1.TabIndex = 44;
             this.button1.Text = "LIMPAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmcadastro_condominio
             // 

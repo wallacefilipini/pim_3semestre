@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cnn\ConnectionString.cs" />
+    <Compile Include="Condominio.cs" />
     <Compile Include="frmCadastro_bloco.cs">
       <SubType>Form</SubType>
     </Compile>
