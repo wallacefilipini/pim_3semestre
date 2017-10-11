@@ -28,3 +28,5 @@ C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.pdb
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmcadastro_condominio.resources
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\mssqlsystemresource.mdf
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\mssqlsystemresource_log.ldf
+C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\ProjetoPim.dll
+C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\ProjetoPim.pdb

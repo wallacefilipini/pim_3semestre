@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pagina_inicial
+namespace ProjetoPim
 {
-    class Condominio
+    public class Condominio
     {
         private int id;
         private String nome_condominio;
@@ -42,7 +42,7 @@ namespace pagina_inicial
             return nome_condominio;
         }
 
-        public void setCep (String cep)
+        public void setCep(String cep)
         {
             this.cep = cep;
         }
@@ -51,7 +51,7 @@ namespace pagina_inicial
             return cep;
         }
 
-        public void setEndereco (String endereco)
+        public void setEndereco(String endereco)
         {
             this.endereco = endereco;
         }
@@ -60,7 +60,7 @@ namespace pagina_inicial
             return endereco;
         }
 
-        public void setBairro (String bairro)
+        public void setBairro(String bairro)
         {
             this.bairro = bairro;
         }
@@ -78,7 +78,7 @@ namespace pagina_inicial
             return cidade;
         }
 
-        public void setEstado (String estado)
+        public void setEstado(String estado)
         {
             this.estado = estado;
         }
@@ -87,7 +87,7 @@ namespace pagina_inicial
             return estado;
         }
 
-        public void setNumero (int numero)
+        public void setNumero(int numero)
         {
             this.numero = numero;
         }
@@ -96,7 +96,7 @@ namespace pagina_inicial
             return numero;
         }
 
-        public void setComplemento (String complemento)
+        public void setComplemento(String complemento)
         {
             this.complemento = complemento;
         }
@@ -105,16 +105,16 @@ namespace pagina_inicial
             return complemento;
         }
 
-        public void setDataCadastro (DateTime data_cadastro)
+        public void setDataCadastro(DateTime data_cadastro)
         {
             this.data_cadastro = data_cadastro;
         }
         public DateTime getDataCadastro()
         {
             return data_cadastro;
-        } 
+        }
 
-        public void setCadastradoPor (int cadastrado_por)
+        public void setCadastradoPor(int cadastrado_por)
         {
             this.cadastrado_por = cadastrado_por;
         }
@@ -123,7 +123,7 @@ namespace pagina_inicial
             return cadastrado_por;
         }
 
-        public void setObservacao (String Observacao)
+        public void setObservacao(String Observacao)
         {
             this.Observacao = Observacao;
         }
@@ -148,7 +148,7 @@ namespace pagina_inicial
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             conexao_banco.Close();
-             return dt;
+            return dt;
 
 
         }
@@ -196,7 +196,7 @@ namespace pagina_inicial
             cmd.Connection = conexao_banco;
             cmd.CommandText = "UPDATE [tb_condominio] set nome_condominio = '" + nome_condominio + "', cep = '" + cep + "', endereco = '" + endereco + "'," +
                 "numero = '" + numero + "', complemento = '" + complemento + "', cidade = '" + cidade + "', estado = '" + estado + "', observacao = '" + Observacao + "'," +
-                "bairro = '" + bairro +"' WHERE id = " + id;
+                "bairro = '" + bairro + "' WHERE id = " + id;
 
             conexao_banco.Open();
             int qtdeLinhas = cmd.ExecuteNonQuery();

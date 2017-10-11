@@ -1,0 +1,6 @@
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\bin\Debug\ProjetoPim.dll
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\bin\Debug\ProjetoPim.pdb
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\obj\Debug\ProjetoPim.csprojResolveAssemblyReference.cache
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\obj\Debug\ProjetoPim.csproj.CoreCompileInputs.cache
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\obj\Debug\ProjetoPim.dll
+C:\Users\walla\Desktop\pim3semestre\ProjetoPim\obj\Debug\ProjetoPim.pdb
