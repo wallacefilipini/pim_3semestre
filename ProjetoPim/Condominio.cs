@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoPim
 {
@@ -132,6 +128,9 @@ namespace ProjetoPim
             return Observacao;
         }
 
+        
+
+
         //Método que faz um select
         public Object ListarRegistros()
         {
@@ -142,7 +141,7 @@ namespace ProjetoPim
             cmd.Connection = conexao_banco;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = " SELECT id AS Codigo, nome_condominio as [Condomínio], endereco As [Endereço], numero As Número" +
-                                ", complemento As Complemento, cep As Cep,  bairro As Bairro, cidade As Cidade, estado As Estado, observacao As Observação from [tb_condominio]";
+                                ", complemento As Complemento, cep As Cep,  bairro As Bairro, cidade As Cidade, estado As Estado, observacao As Observação, data_cadastro as [Cadastrado Em] from [tb_condominio]";
 
             conexao_banco.Open();
             DataTable dt = new DataTable();
@@ -161,9 +160,9 @@ namespace ProjetoPim
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao_banco;
             cmd.CommandText = " INSERT INTO [tb_condominio] " +
-                        " (nome_condominio, cep, endereco, numero, complemento, cidade, estado, observacao, bairro) " +
+                        " (nome_condominio, cep, endereco, numero, complemento, cidade, estado, observacao, bairro, cadastrado_por) " +
                         " VALUES ('" + nome_condominio + "', '" + cep + "', '" + endereco + "', '" + numero + "', " +
-                        "'" + complemento + "', '" + cidade + "', '" + estado + "', '" + Observacao + "', '" + bairro + "')";
+                        "'" + complemento + "', '" + cidade + "', '" + estado + "', '" + Observacao + "', '" + bairro + "', '" + cadastrado_por + "')";
 
             conexao_banco.Open();
             cmd.ExecuteNonQuery();

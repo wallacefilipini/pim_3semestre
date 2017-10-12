@@ -14,15 +14,11 @@ C:\Users\wallace.filipini\documents\visual studio 2015\Projects\pim3semestre\pag
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\pagina_inicial.exe.config
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\pagina_inicial.exe
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\pagina_inicial.pdb
-C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\pt-BR\pagina_inicial.resources.dll
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.csprojResolveAssemblyReference.cache
-C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmcadastro_bloco.resources
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmPrincipal.resources
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.Properties.Resources.resources
-C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmcadastro_bloco.pt-BR.resources
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.csproj.GenerateResource.Cache
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.csproj.CoreCompileInputs.cache
-C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pt-BR\pagina_inicial.resources.dll
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.exe
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.pdb
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmcadastro_condominio.resources
