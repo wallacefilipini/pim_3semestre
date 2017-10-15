@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using DAL.Model;
+using DAL.Persistence;
 namespace pagina_inicial
 {
     public partial class frmcadastro_condominio : Form
@@ -12,81 +13,52 @@ namespace pagina_inicial
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            Condominio CadastroCondominio = new Condominio();
-            
-            CadastroCondominio.setNome(txtNome.Text);
-            CadastroCondominio.setCep(txtCep.Text);
-            CadastroCondominio.setEndereco(txtEndereco.Text);
-            CadastroCondominio.setBairro(txtBairro.Text);
-            CadastroCondominio.setCidade(txtCidade.Text);
-            CadastroCondominio.setEstado(txtEstado.Text);
-            CadastroCondominio.setNumero(Convert.ToInt32(txtNumero.Text));
-            CadastroCondominio.setComplemento(txtComplemento.Text);
+            Condominio c = new Condominio();
 
-            //Se o ID estiver vazio insiro um novo registro.
-            if (String.IsNullOrEmpty(txtId.Text))
-            {
-                CadastroCondominio.InserirNoBanco();
-                grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
-                LimparCampos();
+            c.Nome_condominio = txtNome.Text;
+            c.Cep             = txtCep.Text;
+            c.Endereco        = txtEndereco.Text;
+            c.Bairro          = txtBairro.Text;
+            c.Cidade          = txtCidade.Text;
+            c.Estado          = txtEstado.Text;
+            c.Numero          = Convert.ToInt32(txtNumero.Text);
+            c.Complemento     = txtComplemento.Text;
+            c.Observacao      = txtObservacao.Text;
 
-                MessageBox.Show("Registro incluído com sucesso!");
-            }
-            else
-            {
-                CadastroCondominio.AtualizarRegistro(Convert.ToInt32(txtId.Text));
-                if (MessageBox.Show("Deseja atualizar este registro?", "Atenção", MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {
-                    int qtdeLinhas = CadastroCondominio.AtualizarRegistro(Convert.ToInt32(txtId.Text));
-                    if (qtdeLinhas == 1)
-                    {
-
-                        MessageBox.Show("Registro" + txtId.Text + " atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
-                        LimparCampos();
-                    }
-                }
-
-
-            }
-
-
-
-
-
-            
+            CondominioDAL C = new CondominioDAL();
+            C.Record(c); //Gravando o condominio
+            MessageBox.Show("Condominio cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void frmcadastro_condominio_Load(object sender, EventArgs e)
         {
-            Condominio CadastroCondominio = new Condominio();
-            grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
+            //Condominio CadastroCondominio = new Condominio();
+            //grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
 
-            if (String.IsNullOrEmpty(txtId.Text))
-            {
-                MessageBox.Show("Escolha um item na lista");
-            }
-            else
-            {
-                if (MessageBox.Show("Deseja Excluir este registro? \nEssa ação não poderá ser desfeita!", "Atenção", MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {
-                    Condominio CadastroCondominio = new Condominio();
-                    int qtdeLinhas = CadastroCondominio.ExcluirBanco(Convert.ToInt32(txtId.Text));
-                    if (qtdeLinhas == 1)
-                    {
+            //if (String.IsNullOrEmpty(txtId.Text))
+            //{
+            //    MessageBox.Show("Escolha um item na lista");
+            //}
+            //else
+            //{
+            //    if (MessageBox.Show("Deseja Excluir este registro? \nEssa ação não poderá ser desfeita!", "Atenção", MessageBoxButtons.YesNo,
+            //                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            //    {
+            //        Condominio CadastroCondominio = new Condominio();
+            //        int qtdeLinhas = CadastroCondominio.ExcluirBanco(Convert.ToInt32(txtId.Text));
+            //        if (qtdeLinhas == 1)
+            //        {
                         
-                        MessageBox.Show("Registro" + txtId.Text +"excluído com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
-                        LimparCampos();
-                    }
-                }
-            }
+            //            MessageBox.Show("Registro" + txtId.Text +"excluído com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
+            //            LimparCampos();
+            //        }
+            //    }
+            //}
         }
  
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
