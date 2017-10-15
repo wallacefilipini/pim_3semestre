@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ProjetoPim;
+using DAL.Model;
 namespace pagina_inicial
 {
     public partial class frmcadastro_condominio : Form
