@@ -39,9 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Apartamento.cs" />
+    <Compile Include="Model\Bloco.cs" />
     <Compile Include="Model\Condominio.cs" />
+    <Compile Include="Model\Lazer.cs" />
+    <Compile Include="Model\Morador.cs" />
+    <Compile Include="Model\Reserva.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Persistence\ApartamentoDAL.cs" />
+    <Compile Include="Persistence\BlocoDAL.cs" />
     <Compile Include="Persistence\CondominioDAL.cs" />
     <Compile Include="Persistence\Connection.cs" />
+    <Compile Include="Persistence\LazerDAL.cs" />
+    <Compile Include="Persistence\MoradorDAL.cs" />
+    <Compile Include="Persistence\ReservaDAL.cs" />
+    <Compile Include="Persistence\UsuarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
