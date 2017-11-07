@@ -11,7 +11,7 @@ namespace DAL.Model
         public String Tipo_Lazer { get; set; }
         public String Local { get; set; }
         public String Observacao { get; set; }
-        public String Data_cadastro { get; set; }
-        public String Cadastrado_por { get; set; }
+        public DateTime Data_cadastro { get; set; }
+        public int Cadastrado_por { get; set; }
     }
 }

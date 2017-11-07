@@ -41,7 +41,7 @@ namespace DAL.Persistence
             catch (Exception ex)
             {
 
-                throw new Exception("Erro ao gravar condomínio!:" + ex.Message);
+                throw new Exception("Erro ao gravar o registro!:" + ex.Message);
             }
             finally
             {
@@ -75,7 +75,7 @@ namespace DAL.Persistence
             catch (Exception ex)
             {
 
-                throw new Exception("Erro ao atualizar o cliente!" + ex.Message);
+                throw new Exception("Erro ao atualizar o registro!" + ex.Message);
             }
             finally
             {
@@ -95,7 +95,7 @@ namespace DAL.Persistence
             catch (Exception ex)
             {
 
-                throw new Exception("Erro ao excluir o cliente!" + ex.Message);
+                throw new Exception("Erro ao excluir o registro!" + ex.Message);
             }
             finally
             {
@@ -133,7 +133,7 @@ namespace DAL.Persistence
             catch (Exception ex)
             {
 
-                throw new Exception("Não foi possível encontrar o cliente" + ex.Message);
+                throw new Exception("Não foi possível encontrar o registro" + ex.Message);
             }
             finally
             {
@@ -173,7 +173,7 @@ namespace DAL.Persistence
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível listar os condomínios!" + ex.Message);
+                throw new Exception("Não foi possível listar os registros!" + ex.Message);
             }
             finally
             {

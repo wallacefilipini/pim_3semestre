@@ -24,3 +24,4 @@ C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.pdb
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmcadastro_condominio.resources
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\DAL.dll
 C:\Users\walla\Desktop\pim3semestre\pagina_inicial\bin\Debug\DAL.pdb
+C:\Users\walla\Desktop\pim3semestre\pagina_inicial\obj\Debug\pagina_inicial.frmLogin.resources

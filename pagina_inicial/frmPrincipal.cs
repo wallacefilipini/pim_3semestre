@@ -27,5 +27,11 @@ namespace pagina_inicial
             frmcadastro_condominio frmCadastroBloco = new frmcadastro_condominio();
             frmCadastroBloco.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmLogin logia = new frmLogin();
+            logia.ShowDialog();
+        }
     }
 }
