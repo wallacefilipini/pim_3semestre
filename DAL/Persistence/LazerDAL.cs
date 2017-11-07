@@ -41,7 +41,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Lazer c)
+        public void Update(Lazer c)
         {
             try
             {

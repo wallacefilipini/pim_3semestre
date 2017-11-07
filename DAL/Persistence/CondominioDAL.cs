@@ -49,7 +49,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Condominio c)
+        public void Update(Condominio c)
         {
             try
             {

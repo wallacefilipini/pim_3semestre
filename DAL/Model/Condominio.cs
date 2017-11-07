@@ -19,6 +19,5 @@ namespace DAL.Model
         public DateTime Data_cadastro { get; set; }
         public int Cadastrado_por { get; set; }
         public String Observacao { get; set; }
-
     }
 }

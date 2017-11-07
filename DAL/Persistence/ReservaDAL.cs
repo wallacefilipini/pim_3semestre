@@ -43,7 +43,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Reserva c)
+        public void Update(Reserva c)
         {
             try
             {

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using DAL.Model;
 using System.Data.SqlClient;
 
@@ -42,7 +40,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Apartamento c)
+        public void Update(Apartamento c)
         {
             try
             {

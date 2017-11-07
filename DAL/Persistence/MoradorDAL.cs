@@ -44,7 +44,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Morador c)
+        public void Update(Morador c)
         {
             try
             {

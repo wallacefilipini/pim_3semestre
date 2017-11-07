@@ -43,7 +43,7 @@ namespace DAL.Persistence
             }
         }
 
-        public void Upadte(Bloco c)
+        public void Update(Bloco c)
         {
             try
             {
