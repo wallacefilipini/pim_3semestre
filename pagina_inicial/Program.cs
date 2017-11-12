@@ -16,7 +16,16 @@ namespace pagina_inicial
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
+            if (frmLogin.logado)
+            {
+                Application.Run(new frmPrincipal());
+            }
+
+
+            
         }
     }
 }

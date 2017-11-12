@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL.Model;
 
 namespace pagina_inicial
 {
@@ -26,12 +27,6 @@ namespace pagina_inicial
         {
             frmcadastro_condominio frmCadastroBloco = new frmcadastro_condominio();
             frmCadastroBloco.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmLogin logia = new frmLogin();
-            logia.ShowDialog();
         }
     }
 }

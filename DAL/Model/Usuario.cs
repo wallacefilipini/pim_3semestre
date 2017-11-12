@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace DAL.Model
 {
-    class Usuario
+    public class Usuario
     {
         public int User_id { get; set; }
         public String Name { get; set; }
