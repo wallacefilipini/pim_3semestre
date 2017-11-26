@@ -97,7 +97,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_reserva where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Reserva c = null; //Criando um espaço na memória
 
                 if (Dr.Read())

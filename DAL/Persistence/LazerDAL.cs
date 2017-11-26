@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DAL.Persistence
 {
-    class LazerDAL : Connection
+    public class LazerDAL : Connection
     {
         public void Record(Lazer c)
         {
@@ -46,13 +46,14 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE tb_lazer SET  (tipo_lazer=@v1, local=@v2, observacao=@v3, cadastrado_por=@v4", Con);
+                Cmd = new SqlCommand("UPDATE tb_lazer SET  tipo_lazer=@v1, local=@v2, observacao=@v3, cadastrado_por=@v4 where id=@v5", Con);
 
                 //Atribuindo valores as variaveis do insert
                 Cmd.Parameters.AddWithValue("@V1", c.Tipo_Lazer);
                 Cmd.Parameters.AddWithValue("@V2", c.Local);
                 Cmd.Parameters.AddWithValue("@v3", c.Observacao);
                 Cmd.Parameters.AddWithValue("@V4", c.Cadastrado_por);
+                Cmd.Parameters.AddWithValue("@V5", c.Id);
 
                 Cmd.ExecuteNonQuery();
 
@@ -75,6 +76,7 @@ namespace DAL.Persistence
                 OpenConnection();
                 Cmd = new SqlCommand("DELETE FROM tb_lazer where id=@v1", Con);
                 Cmd.Parameters.AddWithValue("@v1", Id);
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -93,7 +95,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_lazer where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Lazer c = null; //Criando um espaço na memória
 
                 if (Dr.Read())

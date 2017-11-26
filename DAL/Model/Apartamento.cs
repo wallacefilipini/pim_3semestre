@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Model
 {
-    class Apartamento
+    public class Apartamento
     {
         public int Id { get; set; }
         public int Numero_apto { get; set; }

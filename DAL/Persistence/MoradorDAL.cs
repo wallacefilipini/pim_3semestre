@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DAL.Persistence
 {
-    class MoradorDAL : Connection
+    public class MoradorDAL : Connection
     {
         public void Record(Morador c)
         {
@@ -18,7 +18,7 @@ namespace DAL.Persistence
                 OpenConnection();
 
                 //Passa para o objeto Cmd, o insert recebendo valores de variaveis
-                Cmd = new SqlCommand("INSERT INTO tb_morador (nome, data_nascimento, sexo, cpf, rg, id_apartamento, cadastrado_po) " +
+                Cmd = new SqlCommand("INSERT INTO tb_morador (nome, data_nascimento, sexo, cpf, rg, id_apartamento, cadastrado_por) " +
                     "values (@v1, @v2, @v3, @v4, @v5, @v6, @v7)", Con);
 
                 //Atribuindo valores as variaveis do insert
@@ -49,7 +49,7 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE tb_morador SET  (nome=@v1, data_nascimento=@v2, sexo=@v3, cpf=@v4, rg=@v5, id_apartamento=@v6, @cadastrado_po=@v7", Con);
+                Cmd = new SqlCommand("UPDATE tb_morador SET  nome=@v1, data_nascimento=@v2, sexo=@v3, cpf=@v4, rg=@v5, id_apartamento=@v6, cadastrado_por=@v7 where id =@v8", Con);
 
                 //Atribuindo valores as variaveis do insert
                 Cmd.Parameters.AddWithValue("@V1", c.Nome);
@@ -59,6 +59,7 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@V5", c.Rg);
                 Cmd.Parameters.AddWithValue("@V6", c.Id_Apartamento);
                 Cmd.Parameters.AddWithValue("@V7", c.Cadastrado_por);
+                Cmd.Parameters.AddWithValue("@V8", c.Id);
 
                 Cmd.ExecuteNonQuery();
 
@@ -81,6 +82,7 @@ namespace DAL.Persistence
                 OpenConnection();
                 Cmd = new SqlCommand("DELETE FROM tb_morador where id=@v1", Con);
                 Cmd.Parameters.AddWithValue("@v1", Id);
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -99,7 +101,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_morador where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Morador c = null; //Criando um espaço na memória
 
                 if (Dr.Read())

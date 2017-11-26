@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Model
 {
-    class Reserva
+    public class Reserva
     {
         public int Id { get; set; }
         public DateTime Data_agendamento { get; set; }

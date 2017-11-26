@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Model
 {
-    class Lazer
+    public class Lazer
     {
         public int Id { get; set; }
         public String Tipo_Lazer { get; set; }

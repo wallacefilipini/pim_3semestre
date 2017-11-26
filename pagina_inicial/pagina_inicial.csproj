@@ -62,11 +62,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cnn\ConnectionString.cs" />
+    <Compile Include="frmcadastro_apartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmcadastro_apartamento.Designer.cs">
+      <DependentUpon>frmcadastro_apartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmcadastro_bloco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmcadastro_bloco.Designer.cs">
+      <DependentUpon>frmcadastro_bloco.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmcadastro_condominio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmcadastro_condominio.Designer.cs">
       <DependentUpon>frmcadastro_condominio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmcadastro_lazer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmcadastro_lazer.Designer.cs">
+      <DependentUpon>frmcadastro_lazer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmcadastro_morador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmcadastro_morador.Designer.cs">
+      <DependentUpon>frmcadastro_morador.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -82,8 +106,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmcadastro_apartamento.resx">
+      <DependentUpon>frmcadastro_apartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmcadastro_bloco.resx">
+      <DependentUpon>frmcadastro_bloco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmcadastro_condominio.resx">
       <DependentUpon>frmcadastro_condominio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmcadastro_lazer.resx">
+      <DependentUpon>frmcadastro_lazer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmcadastro_morador.resx">
+      <DependentUpon>frmcadastro_morador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

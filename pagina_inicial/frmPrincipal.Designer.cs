@@ -30,16 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Condominio = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeBlocosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeApartamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeMoradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeLazeresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaDeBlocosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarApartamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarMoradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarLarezesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +44,6 @@
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.consultasToolStripMenuItem,
             this.reservasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -61,13 +55,21 @@
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Condominio,
             this.cadastroDeBlocosToolStripMenuItem,
             this.cadastroDeApartamentosToolStripMenuItem,
             this.cadastroDeMoradoresToolStripMenuItem,
             this.cadastroDeLazeresToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.cadastrosToolStripMenuItem.Text = "Ação";
+            // 
+            // Condominio
+            // 
+            this.Condominio.Name = "Condominio";
+            this.Condominio.Size = new System.Drawing.Size(215, 22);
+            this.Condominio.Text = "Cadastro de Condominio";
+            this.Condominio.Click += new System.EventHandler(this.Condominio_Click);
             // 
             // cadastroDeBlocosToolStripMenuItem
             // 
@@ -81,60 +83,21 @@
             this.cadastroDeApartamentosToolStripMenuItem.Name = "cadastroDeApartamentosToolStripMenuItem";
             this.cadastroDeApartamentosToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.cadastroDeApartamentosToolStripMenuItem.Text = "Cadastro de Apartamentos";
+            this.cadastroDeApartamentosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeApartamentosToolStripMenuItem_Click);
             // 
             // cadastroDeMoradoresToolStripMenuItem
             // 
             this.cadastroDeMoradoresToolStripMenuItem.Name = "cadastroDeMoradoresToolStripMenuItem";
             this.cadastroDeMoradoresToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.cadastroDeMoradoresToolStripMenuItem.Text = "Cadastro de Moradores";
+            this.cadastroDeMoradoresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeMoradoresToolStripMenuItem_Click);
             // 
             // cadastroDeLazeresToolStripMenuItem
             // 
             this.cadastroDeLazeresToolStripMenuItem.Name = "cadastroDeLazeresToolStripMenuItem";
             this.cadastroDeLazeresToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.cadastroDeLazeresToolStripMenuItem.Text = "Cadastro de Lazeres";
-            // 
-            // consultasToolStripMenuItem
-            // 
-            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultaDeBlocosToolStripMenuItem,
-            this.consultarApartamentosToolStripMenuItem,
-            this.consultarMoradoresToolStripMenuItem,
-            this.consultarLarezesToolStripMenuItem,
-            this.consultarReservasToolStripMenuItem});
-            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.consultasToolStripMenuItem.Text = "Consultas";
-            // 
-            // consultaDeBlocosToolStripMenuItem
-            // 
-            this.consultaDeBlocosToolStripMenuItem.Name = "consultaDeBlocosToolStripMenuItem";
-            this.consultaDeBlocosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.consultaDeBlocosToolStripMenuItem.Text = "Consultar Blocos";
-            // 
-            // consultarApartamentosToolStripMenuItem
-            // 
-            this.consultarApartamentosToolStripMenuItem.Name = "consultarApartamentosToolStripMenuItem";
-            this.consultarApartamentosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.consultarApartamentosToolStripMenuItem.Text = "Consultar Apartamentos";
-            // 
-            // consultarMoradoresToolStripMenuItem
-            // 
-            this.consultarMoradoresToolStripMenuItem.Name = "consultarMoradoresToolStripMenuItem";
-            this.consultarMoradoresToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.consultarMoradoresToolStripMenuItem.Text = "Consultar Moradores";
-            // 
-            // consultarLarezesToolStripMenuItem
-            // 
-            this.consultarLarezesToolStripMenuItem.Name = "consultarLarezesToolStripMenuItem";
-            this.consultarLarezesToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.consultarLarezesToolStripMenuItem.Text = "Consultar Larezes";
-            // 
-            // consultarReservasToolStripMenuItem
-            // 
-            this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
-            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.consultarReservasToolStripMenuItem.Text = "Consultar Reservas";
+            this.cadastroDeLazeresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeLazeresToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
@@ -170,13 +133,8 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeApartamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeMoradoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeLazeresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaDeBlocosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarApartamentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarMoradoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarLarezesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Condominio;
     }
 }
 

@@ -8,7 +8,7 @@ using DAL.Model;
 
 namespace DAL.Persistence
 {
-    class BlocoDAL : Connection
+    public class BlocoDAL : Connection
     {
         public void Record(Bloco c)
         {
@@ -48,7 +48,7 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE tb_bloco SET  (descricao=@v1, qtd_andar=@v2, qtd_apartamento=@v3, cadastrado_por=@v4, id_condominio=@v5  where id=@v6", Con);
+                Cmd = new SqlCommand("UPDATE tb_bloco SET  descricao=@v1, qtd_andar=@v2, qtd_apartamento=@v3, cadastrado_por=@v4, id_condominio=@v5  where id=@v6", Con);
 
                 //Atribuindo valores as variaveis do insert
                 Cmd.Parameters.AddWithValue("@V1", c.Descricao);
@@ -79,7 +79,7 @@ namespace DAL.Persistence
                 OpenConnection();
                 Cmd = new SqlCommand("DELETE FROM tb_bloco where id=@v1", Con);
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -98,7 +98,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_bloco where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Bloco c = null; //Criando um espaço na memória
 
                 if (Dr.Read())
@@ -131,7 +131,7 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("SELECT * FROM tb_apartamento", Con);
+                Cmd = new SqlCommand("SELECT * FROM tb_bloco", Con);
                 Dr = Cmd.ExecuteReader();
 
                 List<Bloco> lista = new List<Bloco>();
@@ -145,7 +145,7 @@ namespace DAL.Persistence
                     c.Qtd_andar = Convert.ToInt32(Dr["qtd_andar"]);
                     c.Qtd_apartamento = Convert.ToInt32(Dr["qtd_apartamento"]);
                     c.Data_cadastro = Convert.ToDateTime(Dr["data_cadastro"]);
-                    c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
+                    //c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
                     c.Id_condominio = Convert.ToInt32(Dr["id_condominio"]);
 
                     lista.Add(c);

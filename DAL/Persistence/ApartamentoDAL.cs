@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DAL.Persistence
 {
-    class ApartamentoDAL : Connection
+    public class ApartamentoDAL : Connection
     {
         public void Record(Apartamento c)
         {
@@ -32,7 +32,7 @@ namespace DAL.Persistence
             catch (Exception ex)
             {
 
-                throw new Exception("Erro ao gravar apartamento!:" + ex.Message);
+                throw new Exception("Erro ao gravar o registro!:" + ex.Message);
             }
             finally
             {
@@ -45,13 +45,13 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE tb_apartamento SET  (numero_apto=@v1, andar_apto=@v2, numero_garagem=@v3, cadastrado_por=@v4, id_bloco=@v5  where id=@v6", Con);
+                Cmd = new SqlCommand("UPDATE tb_apartamento SET  numero_apto=@v1, andar_apto=@v2, numero_garagem=@v3, id_bloco=@v5  where id=@v6", Con);
 
                 //Atribuindo valores as variaveis do insert
                 Cmd.Parameters.AddWithValue("@V1", c.Numero_apto);
                 Cmd.Parameters.AddWithValue("@V2", c.Andar_apto);
                 Cmd.Parameters.AddWithValue("@v3", c.Numero_garagem);
-                Cmd.Parameters.AddWithValue("@V4", c.Cadastrado_por);
+                //Cmd.Parameters.AddWithValue("@V4", c.Cadastrado_por);
                 Cmd.Parameters.AddWithValue("@V5", c.Id_Bloco);
                 Cmd.Parameters.AddWithValue("@V6", c.Id);
 
@@ -76,7 +76,7 @@ namespace DAL.Persistence
                 OpenConnection();
                 Cmd = new SqlCommand("DELETE FROM tb_apartamento where id=@v1", Con);
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_apartamento where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Apartamento c = null; //Criando um espaço na memória
 
                 if (Dr.Read())
@@ -105,8 +105,8 @@ namespace DAL.Persistence
                     c.Numero_apto = Convert.ToInt32(Dr["numero_apto"]);
                     c.Andar_apto = Convert.ToInt32(Dr["andar_apto"]);
                     c.Numero_apto = Convert.ToInt32(Dr["numero_apto"]);
-                    c.Data_cadastro = Convert.ToDateTime(Dr["data_cadastro"]);
-                    c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
+                    //c.Data_cadastro = Convert.ToDateTime(Dr["data_cadastro"]);
+                    //c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
                     c.Id_Bloco = Convert.ToInt32(Dr["id_bloco"]);
                 }
                 return c;
@@ -140,9 +140,10 @@ namespace DAL.Persistence
                     c.Id = Convert.ToInt32(Dr["Id"]);
                     c.Numero_apto = Convert.ToInt32(Dr["numero_apto"]);
                     c.Andar_apto = Convert.ToInt32(Dr["andar_apto"]);
+                    c.Numero_garagem = Convert.ToInt32(Dr["numero_garagem"]);
                     c.Numero_apto = Convert.ToInt32(Dr["numero_apto"]);
                     c.Data_cadastro = Convert.ToDateTime(Dr["data_cadastro"]);
-                    c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
+                    //c.Cadastrado_por = Convert.ToInt32(Dr["cadastrado_por"]);
                     c.Id_Bloco = Convert.ToInt32(Dr["id_bloco"]);
 
                     lista.Add(c);

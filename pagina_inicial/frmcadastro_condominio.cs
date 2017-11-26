@@ -13,52 +13,77 @@ namespace pagina_inicial
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            Condominio c = new Condominio();
+            if (String.IsNullOrEmpty(txtId.Text))
+            {
+                Condominio c = new Condominio();
 
-            c.Nome_condominio = txtNome.Text;
-            c.Cep             = txtCep.Text;
-            c.Endereco        = txtEndereco.Text;
-            c.Bairro          = txtBairro.Text;
-            c.Cidade          = txtCidade.Text;
-            c.Estado          = txtEstado.Text;
-            c.Numero          = Convert.ToInt32(txtNumero.Text);
-            c.Complemento     = txtComplemento.Text;
-            c.Observacao      = txtObservacao.Text;
+                c.Nome_condominio = txtNome.Text;
+                c.Cep = txtCep.Text;
+                c.Endereco = txtEndereco.Text;
+                c.Bairro = txtBairro.Text;
+                c.Cidade = txtCidade.Text;
+                c.Estado = txtEstado.Text;
+                c.Numero = Convert.ToInt32(txtNumero.Text);
+                c.Complemento = txtComplemento.Text;
+                c.Observacao = txtObservacao.Text;
 
-            CondominioDAL C = new CondominioDAL();
-            C.Record(c); //Gravando o condominio
-            MessageBox.Show("Condominio cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CondominioDAL C = new CondominioDAL();
+                C.Record(c); //Gravando o condominio
+                MessageBox.Show("Condominio cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AlimentarGrid();
+
+
+
+            }
+            else
+            {
+                Condominio c = new Condominio();
+
+                c.Id = Convert.ToInt32(txtId.Text);
+                c.Nome_condominio = txtNome.Text;
+                c.Cep = txtCep.Text;
+                c.Endereco = txtEndereco.Text;
+                c.Bairro = txtBairro.Text;
+                c.Cidade = txtCidade.Text;
+                c.Estado = txtEstado.Text;
+                c.Numero = Convert.ToInt32(txtNumero.Text);
+                c.Complemento = txtComplemento.Text;
+                c.Observacao = txtObservacao.Text;
+
+                CondominioDAL C = new CondominioDAL();
+                C.Update(c); //Gravando o condominio
+                MessageBox.Show("Condominio atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AlimentarGrid();
+            }
+            
         }
 
-        public void frmcadastro_condominio_Load(object sender, EventArgs e)
-        {
-            //Condominio CadastroCondominio = new Condominio();
-            //grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
-        }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
 
-            //if (String.IsNullOrEmpty(txtId.Text))
-            //{
-            //    MessageBox.Show("Escolha um item na lista");
-            //}
-            //else
-            //{
-            //    if (MessageBox.Show("Deseja Excluir este registro? \nEssa ação não poderá ser desfeita!", "Atenção", MessageBoxButtons.YesNo,
-            //                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-            //    {
-            //        Condominio CadastroCondominio = new Condominio();
-            //        int qtdeLinhas = CadastroCondominio.ExcluirBanco(Convert.ToInt32(txtId.Text));
-            //        if (qtdeLinhas == 1)
-            //        {
+            if (String.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Escolha um item na lista");
+            }
+            else
+            {
+                if (MessageBox.Show("Deseja Excluir este registro? \nEssa ação não poderá ser desfeita!", "Atenção", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+
+                    Condominio C = new Condominio();
+                    CondominioDAL c = new CondominioDAL();
+                    C.Id = Convert.ToInt32(txtId.Text);
+
+                    c.Delete(Convert.ToInt32(C.Id));
                         
-            //            MessageBox.Show("Registro" + txtId.Text +"excluído com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            grid_condominio.DataSource = CadastroCondominio.ListarRegistros();
-            //            LimparCampos();
-            //        }
-            //    }
-            //}
+                    MessageBox.Show("Registro " + txtId.Text +" excluído com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AlimentarGrid();
+                    LimparCampos();
+                    
+                }
+            }
         }
  
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
@@ -84,21 +109,26 @@ namespace pagina_inicial
 
         private void grid_condominio_Click(object sender, EventArgs e)
         {
-            txtId.Text = grid_condominio.SelectedRows[0].Cells[0].Value.ToString();
-            txtNome.Text = grid_condominio.SelectedRows[0].Cells[1].Value.ToString();
-            txtEndereco.Text = grid_condominio.SelectedRows[0].Cells[2].Value.ToString();
-            txtNumero.Text = grid_condominio.SelectedRows[0].Cells[3].Value.ToString();
-            txtComplemento.Text = grid_condominio.SelectedRows[0].Cells[4].Value.ToString();
-            txtCep.Text = grid_condominio.SelectedRows[0].Cells[5].Value.ToString();
-            txtBairro.Text = grid_condominio.SelectedRows[0].Cells[6].Value.ToString();
-            txtCidade.Text = grid_condominio.SelectedRows[0].Cells[7].Value.ToString();
-            txtEstado.Text = grid_condominio.SelectedRows[0].Cells[8].Value.ToString();
+
+            if (grid_condominio.Visible == true)
+            {
+                txtId.Text = grid_condominio.SelectedRows[0].Cells[0].Value.ToString();
+                txtNome.Text = grid_condominio.SelectedRows[0].Cells[1].Value.ToString();
+                txtCep.Text = grid_condominio.SelectedRows[0].Cells[2].Value.ToString();
+                txtEndereco.Text = grid_condominio.SelectedRows[0].Cells[3].Value.ToString();
+                txtBairro.Text = grid_condominio.SelectedRows[0].Cells[4].Value.ToString();
+                txtCidade.Text = grid_condominio.SelectedRows[0].Cells[5].Value.ToString();
+                txtEstado.Text = grid_condominio.SelectedRows[0].Cells[6].Value.ToString();
+                txtNumero.Text = grid_condominio.SelectedRows[0].Cells[7].Value.ToString();
+                txtComplemento.Text = grid_condominio.SelectedRows[0].Cells[8].Value.ToString();
+                txtObservacao.Text = grid_condominio.SelectedRows[0].Cells[11].Value.ToString();
+            }
         }
 
         private void LimparCampos()
         {
-            txtId = null;
-            txtId = null;
+            
+            txtId.Text= null;
             txtNome.Text = null;
             txtCep.Text = null;
             txtEndereco.Text = null;
@@ -110,10 +140,32 @@ namespace pagina_inicial
             txtBairro.Text = null;
         }
 
+        private void AlimentarGrid()
+        {
+            try
+            {
+                CondominioDAL c = new CondominioDAL();
+                grid_condominio.DataSource = c.Listar();//Popular o grid
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possivel exibir os dados" + ex);
+            }
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            grid_condominio.Visible = true;
+            AlimentarGrid();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
+
+
     }
 }
 

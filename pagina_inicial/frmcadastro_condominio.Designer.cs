@@ -72,6 +72,7 @@
             this.grid_condominio.Size = new System.Drawing.Size(1054, 223);
             this.grid_condominio.TabIndex = 0;
             this.grid_condominio.TabStop = false;
+            this.grid_condominio.Visible = false;
             this.grid_condominio.Click += new System.EventHandler(this.grid_condominio_Click);
             // 
             // btnIncluir
@@ -85,6 +86,7 @@
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(75, 35);
             this.btnIncluir.TabIndex = 1;
+            this.btnIncluir.TabStop = false;
             this.btnIncluir.Text = "SALVAR";
             this.btnIncluir.UseVisualStyleBackColor = false;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
@@ -101,6 +103,7 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "VISUALIZAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -112,9 +115,10 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 35);
             this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabStop = false;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // txtEstado
             // 
@@ -321,6 +325,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 35);
             this.button1.TabIndex = 44;
+            this.button1.TabStop = false;
             this.button1.Text = "LIMPAR";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -363,7 +368,6 @@
             this.Name = "frmcadastro_condominio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Condomínios";
-            this.Load += new System.EventHandler(this.frmcadastro_condominio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_condominio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

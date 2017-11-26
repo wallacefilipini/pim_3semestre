@@ -54,7 +54,7 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE tb_condominio SET  (nome_condominio=@v1, cep=@v2, endereco=@v3, bairro=@v4, cidade=@v5, estado=@v6, numero=@v7, complemento=@v8, observacao=@v9, cadastrado_por=@v10 where id=@v11", Con);
+                Cmd = new SqlCommand ("UPDATE tb_condominio SET nome_condominio=@v1, cep=@v2, endereco=@v3, bairro=@v4, cidade=@v5, estado=@v6, numero=@v7, complemento=@v8, observacao=@v9 where id=@v11", Con);
 
                 //Atribuindo valores as variaveis do insert
                 Cmd.Parameters.AddWithValue("@V1", c.Nome_condominio);
@@ -66,17 +66,17 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@V7", c.Numero);
                 Cmd.Parameters.AddWithValue("@V8", c.Complemento);
                 Cmd.Parameters.AddWithValue("@V9", c.Observacao);
-                Cmd.Parameters.AddWithValue("@V10", c.Cadastrado_por);
+                //Cmd.Parameters.AddWithValue("@V10", c.Cadastrado_por);
                 Cmd.Parameters.AddWithValue("@V11", c.Id);
 
                 Cmd.ExecuteNonQuery();
 
             }
-            catch (Exception ex)
-            {
+            //catch (Exception ex)
+            //{
 
-                throw new Exception("Erro ao atualizar o registro!" + ex.Message);
-            }
+                //throw new Exception("Erro ao atualizar o registro!" + ex.Message);
+            //}
             finally
             {
                 CloseConnection();
@@ -88,9 +88,9 @@ namespace DAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("DELETE FROM tb_pessoa where id=@v1", Con);
+                Cmd = new SqlCommand("DELETE FROM tb_condominio where id=@v1", Con);
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace DAL.Persistence
             {
                 Cmd = new SqlCommand("SELECT * FROM tb_condominio where id=@v1");
                 Cmd.Parameters.AddWithValue("@v1", Id);
-
+                Dr = Cmd.ExecuteReader();
                 Condominio c = null; //Criando um espaço na memória
                 
                 if (Dr.Read())
@@ -156,7 +156,7 @@ namespace DAL.Persistence
                     Condominio c = new Condominio();
                     c.Id                = Convert.ToInt32(Dr["Id"]);
                     c.Nome_condominio   = Convert.ToString(Dr["nome_condominio"]);
-                    c.Cep               = Convert.ToString(Dr["nome_condominio"]);
+                    c.Cep               = Convert.ToString(Dr["cep"]);
                     c.Endereco          = Convert.ToString(Dr["endereco"]);
                     c.Bairro            = Convert.ToString(Dr["bairro"]);
                     c.Cidade            = Convert.ToString(Dr["cidade"]);
@@ -164,7 +164,7 @@ namespace DAL.Persistence
                     c.Numero            = Convert.ToInt32(Dr["numero"]);
                     c.Complemento       = Convert.ToString(Dr["complemento"]);
                     c.Observacao        = Convert.ToString(Dr["observacao"]);
-                    c.Cadastrado_por    = Convert.ToInt32(Dr["cadastrado_por"]);
+                    //c.Cadastrado_por    = Convert.ToInt32(Dr["cadastrado_por"]);
 
                     lista.Add(c);
 
