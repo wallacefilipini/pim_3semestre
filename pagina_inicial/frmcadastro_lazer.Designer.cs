@@ -230,6 +230,7 @@
             this.Name = "frmcadastro_lazer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmcadastro_lazer";
+            this.Load += new System.EventHandler(this.frmcadastro_lazer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_condominio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

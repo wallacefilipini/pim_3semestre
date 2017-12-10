@@ -31,7 +31,7 @@ namespace pagina_inicial
                 C.Record(c); //Gravando o condominio
                 MessageBox.Show("Condominio cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AlimentarGrid();
-
+                LimparCampos();
 
 
             }
@@ -54,6 +54,7 @@ namespace pagina_inicial
                 C.Update(c); //Gravando o condominio
                 MessageBox.Show("Condominio atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AlimentarGrid();
+                LimparCampos();
             }
             
         }

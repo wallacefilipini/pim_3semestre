@@ -15,5 +15,6 @@ namespace DAL.Model
         public int Id_lazer { get; set; }
         public int cadastrado_por { get; set; }
         public int id_apartamento { get; set; }
+        public int verifica { get; set; }
     }
 }

@@ -76,6 +76,7 @@ namespace pagina_inicial
                     B.Record(b); //Gravando o condominio
                     MessageBox.Show("Bloco cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AlimentarGrid();
+                    LimparCampos();
                 }
                 
 
@@ -102,6 +103,7 @@ namespace pagina_inicial
                     B.Update(b); //Gravando o condominio
                     MessageBox.Show("Bloco atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AlimentarGrid();
+                    LimparCampos();
                 }
                 
             }

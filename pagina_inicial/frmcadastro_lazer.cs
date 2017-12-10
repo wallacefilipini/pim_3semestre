@@ -32,6 +32,7 @@ namespace pagina_inicial
                 C.Record(c); //Gravando o condominio
                 MessageBox.Show("Lazer cadastrado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AlimentarGrid();
+                LimparCampos();
             }
             else
             {
@@ -47,6 +48,7 @@ namespace pagina_inicial
                 C.Update(c); //Gravando o condominio
                 MessageBox.Show("Lazer atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AlimentarGrid();
+                LimparCampos();
             }
         }
 
@@ -121,5 +123,15 @@ namespace pagina_inicial
                 txtObservacao.Text = grid_condominio.SelectedRows[0].Cells[3].Value.ToString();
             }
         }
+
+        private void frmcadastro_lazer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        }
+
     }
-}
+

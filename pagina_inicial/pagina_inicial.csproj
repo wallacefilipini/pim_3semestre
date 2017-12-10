@@ -104,6 +104,12 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmreserva_lazer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmreserva_lazer.Designer.cs">
+      <DependentUpon>frmreserva_lazer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmcadastro_apartamento.resx">
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmreserva_lazer.resx">
+      <DependentUpon>frmreserva_lazer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

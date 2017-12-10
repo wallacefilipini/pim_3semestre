@@ -52,5 +52,11 @@ namespace pagina_inicial
             frmcadastro_lazer frmCadastroLazer = new frmcadastro_lazer();
             frmCadastroLazer.ShowDialog();
         }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmreserva_lazer FrmReserva = new frmreserva_lazer();
+            FrmReserva.ShowDialog();
+        }
     }
 }
